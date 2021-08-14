@@ -4,6 +4,8 @@ namespace App;
 
 class DayTwo
 {
+    private string $input;
+
     public function __construct()
     {
         $this->input = "9-10 m: mmmmnxmmmwm
@@ -1014,8 +1016,8 @@ class DayTwo
 
         $correctPasswords = 0;
 
-        foreach ($inputElements as $inputLine) {
-            $inputRules = explode(" ", $inputLine);
+        foreach ($inputElements as $inputElement) {
+            $inputRules = explode(" ", $inputElement);
             $limits = explode("-", $inputRules[0]);
 
             $lowerLimit = $limits[0];
@@ -1044,8 +1046,8 @@ class DayTwo
 
         $correctPasswords = 0;
 
-        foreach ($inputElements as $inputLine) {
-            $inputRules = explode(" ", $inputLine);
+        foreach ($inputElements as $inputElement) {
+            $inputRules = explode(" ", $inputElement);
             $limits = explode("-", $inputRules[0]);
 
             $lowerPosition = $limits[0] - 1;
@@ -1053,15 +1055,10 @@ class DayTwo
             $ruleChar = str_replace(':', '', $inputRules[1]);
             $passwordChars = mb_str_split($inputRules[2]);
 
-            if ($passwordChars[$lowerPosition] === $ruleChar && $passwordChars[$upperPosition] !== $ruleChar) {
-                $correctPasswords++;
-            } elseif ($passwordChars[$lowerPosition] !== $ruleChar && $passwordChars[$upperPosition] === $ruleChar) {
+            if (($passwordChars[$lowerPosition] === $ruleChar && $passwordChars[$upperPosition] !== $ruleChar) ||
+                ($passwordChars[$lowerPosition] !== $ruleChar && $passwordChars[$upperPosition] === $ruleChar)) {
                 $correctPasswords++;
             }
-
-//            var_dump($lowerPosition, $upperPosition, $ruleChar, $correctPasswords);
-//            var_export($passwordChars);
-//            exit;
         }
         return $correctPasswords;
     }
