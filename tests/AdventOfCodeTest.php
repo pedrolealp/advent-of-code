@@ -1,8 +1,9 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests;
 
 use App\DayOne;
+use App\DayThree;
 use App\DayTwo;
 use PHPUnit\Framework\TestCase;
 
@@ -41,9 +42,9 @@ class AdventOfCodeTest extends TestCase
      */
     public function DayTwoPartOne()
     {
-        $dayOne = new DayTwo();
+        $dayTwo = new DayTwo();
 
-        $result = $dayOne->getPartOne();
+        $result = $dayTwo->getPartOne();
 
         echo $result;
 
@@ -55,9 +56,37 @@ class AdventOfCodeTest extends TestCase
      */
     public function DayTwoPartTwo()
     {
-        $dayOne = new DayTwo();
+        $dayTwo = new DayTwo();
 
-        $result = $dayOne->getPartTwo();
+        $result = $dayTwo->getPartTwo();
+
+        echo $result;
+
+        $this->assertNotNull($result);
+    }
+
+    /**
+     * @test
+     */
+    public function DayThreePartOne()
+    {
+        $dayThree = new DayThree();
+
+        $result = $dayThree->getPartOne();
+
+        echo $result;
+
+        $this->assertNotNull($result);
+    }
+
+    /**
+     * @test
+     */
+    public function DayThreePartTwo()
+    {
+        $dayThree = new DayThree();
+
+        $result = $dayThree->gerPartTwo();
 
         echo $result;
 
